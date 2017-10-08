@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+  
+
+  <servlet>
+    <servlet-name>log4j-init</servlet-name>
+    <servlet-class>SnapshooterCloud.Log4jInit</servlet-class>
+
+    <init-param>
+      <param-name>log4j-init-file</param-name>
+      <param-value>WEB-INF/log4j.properties</param-value>
+    </init-param>
+  
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+   
+                        
+    <servlet>
+        <servlet-name>authenticate</servlet-name>
+        <servlet-class>SnapshooterCloud.authenticate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>authenticate</servlet-name>
+        <url-pattern>/authenticate</url-pattern>
+    </servlet-mapping> 
+    <servlet>
+        <servlet-name>disconnect</servlet-name>
+        <servlet-class>SnapshooterCloud.disconnect</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>disconnect</servlet-name>
+        <url-pattern>/disconnect</url-pattern>
+    </servlet-mapping>    
+     
+    <servlet>
+        <servlet-name>uploadfile</servlet-name>
+        <servlet-class>SnapshooterCloud.uploadfile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uploadfile</servlet-name>
+        <url-pattern>/uploadfile</url-pattern>
+    </servlet-mapping>  
+     
+    <servlet>
+        <servlet-name>downloadSnapshot</servlet-name>
+        <servlet-class>SnapshooterCloud.downloadSnapshot</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>downloadSnapshot</servlet-name>
+        <url-pattern>/downloadSnapshot</url-pattern>
+    </servlet-mapping>  
+
+    <servlet>
+        <servlet-name>listfiles</servlet-name>
+        <servlet-class>SnapshooterCloud.listfiles</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>listfiles</servlet-name>
+        <url-pattern>/listfiles</url-pattern>
+    </servlet-mapping>       
+    
+    <servlet>
+        <servlet-name>listdevices</servlet-name>
+        <servlet-class>SnapshooterCloud.listdevices</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>listdevices</servlet-name>
+        <url-pattern>/listdevices</url-pattern>
+    </servlet-mapping>       
+
+    <servlet>
+        <servlet-name>adddbuser</servlet-name>
+        <servlet-class>SnapshooterCloud.adddbuser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adddbuser</servlet-name>
+        <url-pattern>/adddbuser</url-pattern>
+    </servlet-mapping>                     
+                                                            
+    <servlet>
+        <servlet-name>syncdevices</servlet-name>
+        <servlet-class>SnapshooterCloud.syncdevices</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>syncdevices</servlet-name>
+        <url-pattern>/syncdevices</url-pattern>
+    </servlet-mapping>                      
+
+    <servlet>
+        <servlet-name>deletesnaps</servlet-name>
+        <servlet-class>SnapshooterCloud.deletesnaps</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deletesnaps</servlet-name>
+        <url-pattern>/deletesnaps</url-pattern>
+    </servlet-mapping>             
+                                    
+    <servlet>
+        <servlet-name>registeruser</servlet-name>
+        <servlet-class>SnapshooterCloud.registeruser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registeruser</servlet-name>
+        <url-pattern>/registeruser</url-pattern>
+    </servlet-mapping>                       
+       
+    <servlet>
+        <servlet-name>validateandgethash</servlet-name>
+        <servlet-class>SnapshooterCloud.validateandgethash</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>validateandgethash</servlet-name>
+        <url-pattern>/validateandgethash</url-pattern>
+    </servlet-mapping>                                              
+                                                                                                                         
+    <context-param> 
+        <description>Location to store uploaded file</description> 
+        <param-name>store_location</param-name> 
+        <param-value>
+             /Users/Khalid/Documents/Dev/Servlet/test/
+         </param-value> 
+    </context-param>   
+    
+    <context-param> 
+        <description>Cassandra DB IP address</description>        
+        <param-name>clusterAddress</param-name>          
+        <param-value>
+             127.0.0.1
+         </param-value> 
+    </context-param>  
+    
+    <context-param> 
+        <description>Drupal server address</description>         
+        <param-name>drupalAddress</param-name>         
+        <param-value>
+             http://localhost:8888/snaps
+         </param-value> 
+    </context-param>             
+                  
+    <welcome-file-list>
+        <welcome-file>uploadform.html</welcome-file>
+    </welcome-file-list>                            
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+   
+    
+</web-app>
